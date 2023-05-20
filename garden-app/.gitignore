@@ -1,0 +1,8 @@
+__pycache__
+.env
+node_modules/
+/frontend/public/build/
+.vscode
+backend/db
+backend/db_dev.json
+backend/db_prod.json
