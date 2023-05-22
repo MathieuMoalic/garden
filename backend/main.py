@@ -1,20 +1,13 @@
 from fastapi import FastAPI 
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+
 import json
 from gpiozero import LED
 
 pump = LED(17)
 
 app = FastAPI(title="Garden API")
-
-DB_PATH = "db/dev.db"
-with open(DB_PATH, "w") as fp:
-    json.dump([
-        {'name':'Tomato', 'active':True, 'category':'vegetable', 'emoji':''},
-        ],fp)
-
-with open(DB_PATH,"r") as f:
-    db = json.load(f)
 
 app.add_middleware(
     CORSMiddleware,
@@ -23,10 +16,6 @@ app.add_middleware(
     allow_methods=["*"], 
     allow_headers=["*"],
 )
-
-def save():
-    with open(DB_PATH, "w") as fp:
-        json.dump(db, fp)
 
 @app.get("/api/pump-on")
 async def pump_on():
@@ -39,3 +28,8 @@ async def pump_off():
 @app.get("/api/pump-status")
 async def pump_off():
     return {"status":pump.is_lit}
+
+
+@app.get("/api/cam")
+async def get_cam():
+    return FileResponse("./cam_shots/latest.jpeg")

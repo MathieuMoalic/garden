@@ -6,3 +6,4 @@ node_modules/
 backend/db
 backend/db_dev.json
 backend/db_prod.json
+cam_shots

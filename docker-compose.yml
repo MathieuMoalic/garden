@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  garden-frontend-prod:
+    image: localhost/matmoa/garden-frontend
+    container_name: garden-frontend-prod
+    ports:
+      - 15010:15010
+  garden-backend-prod:
+    image: localhost/matmoa/garden-backend
+    ports:
+      - 15011:15011
+    container_name: garden-backend-prod
+    volumes:
+      - ./backend/cam_shots:/app/cam_shots:Z
