@@ -1,4 +1,4 @@
-FROM node:current-alpine3.17
+FROM node:20-alpine3.17
 WORKDIR /app
 ENV HOST=0.0.0.0
 ENV PORT=15000

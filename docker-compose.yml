@@ -11,4 +11,4 @@ services:
       - 15011:15011
     container_name: garden-backend-prod
     volumes:
-      - ./backend/cam_shots:/app/cam_shots:Z
+      - ./backend/cam_shots:/app/cam_shots:z

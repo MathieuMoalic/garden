@@ -1,5 +1,5 @@
 dev:
-	DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock" docker-compose -p "garden-app-dev" -f "docker-compose.dev.yml" up --build
+	DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock" docker-compose -p "garden-app-dev" -f "docker-compose.dev.yml" up --build -d
 
 deploy: 
 	DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock" docker-compose up -d 

@@ -5,14 +5,16 @@ services:
       context: ./frontend/
       dockerfile: dev.Dockerfile
     container_name: garden-frontend-dev
+    ports:
+      - 15000:15000
     volumes:
-      - /home/mat/docker/garden-app/frontend/src:/app/src:z
-      - /home/mat/docker/garden-app/frontend/public:/app/public:z
-      - /home/mat/docker/garden-app/frontend/rollup.config.js:/app/rollup.config.js:z
+      - ./frontend:/app:z
   garden-backend-dev:
     build:
       context: ./backend/
       dockerfile: dev.Dockerfile
     container_name: garden-backend-dev
+    ports:
+      - 15001:15001
     volumes:
       - ./backend:/app:z
