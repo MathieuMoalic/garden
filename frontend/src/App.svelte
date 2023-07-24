@@ -1,16 +1,22 @@
 <script>
   import PumpToggleButton from "./PumpToggleButton.svelte";
   import Cam from "./Cam.svelte";
-
-  let api = "./api";
+  import PumpStatus from "./PumpStatus.svelte";
+  import History from "./History.svelte";
 </script>
 
 <main>
+  <div class="status">
+    <PumpStatus />
+  </div>
   <div class="pump">
     <PumpToggleButton />
   </div>
   <div class="cam">
     <Cam />
+  </div>
+  <div class="history">
+    <History />
   </div>
 </main>
 
@@ -29,22 +35,31 @@
     display: grid;
     margin: 2rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 2fr 1fr;
     grid-template-areas:
       "PumpToggle PumpToggle PumpToggle PumpToggle"
+      "PumpStatus PumpStatus PumpStatus PumpStatus"
       "Cam Cam Cam Cam"
-      "Cam Cam Cam Cam";
-    grid-gap: 10px;
+      "History History History History";
+    grid-gap: 0px;
+    overflow: hidden;
+    height: 100%;
   }
   main > div {
     text-align: center;
-    padding: 20px 0;
+    /* margin: 20px 0; */
     font-size: 30px;
   }
   .pump {
     grid-area: PumpToggle;
   }
+  .status {
+    grid-area: PumpStatus;
+  }
   .cam {
     grid-area: Cam;
+  }
+  .history {
+    grid-area: History;
   }
 </style>
